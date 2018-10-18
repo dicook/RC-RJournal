@@ -1,0 +1,26 @@
+# Editorial assistance for the R Journal
+<!--
+This is where the proposal should be outlined. 
+-->
+
+## Overview
+<!--
+At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
+-->
+
+The R Journal is the open access, refereed journal of the R project for statistical computing. This is a major outlet for articulating new work contributed to the R community. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and it is becoming hard to find new editorial board members. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistant to copy edit, nag reviewers, and help finalise editions. 
+
+## Detail
+<!--
+Go into more detail about the specifics of the project and it delivers against the problem.
+
+Depending on project type the detail section should include:
+
+ - [ ] Minimum Viable Product
+ - [ ] Architecture
+ - [ ] Assumptions
+-->
+
+### 
+
+ 
