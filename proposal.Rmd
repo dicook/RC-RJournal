@@ -44,6 +44,7 @@ Funds are requested to hire a person to assist with the administration of the R 
 - Di Cook, Econometrics and Business Statistics, Monash University
 - Olivia Lau, Google, USA
 - John Verzani, Mathematics, City University of New York
+- Yihui Xie, RStudio
 
 ## Project Milestones
 
