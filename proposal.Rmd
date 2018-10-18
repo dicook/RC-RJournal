@@ -3,14 +3,30 @@
 This is where the proposal should be outlined. 
 -->
 
-## Overview
+## The Problem
 <!--
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 
 The R Journal is the open access, refereed journal of the R project for statistical computing. This is a major outlet for articulating new work contributed to the R community. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and it is becoming hard to find new editorial board members. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistant to copy edit, nag reviewers, and help finalise editions. 
 
-## Detail
+```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
+library(tidyverse)
+RJ <- read_csv("RJournal.csv", skip=1)
+JCGS <- read_csv("JCGS.csv", skip=1) %>% filter(Year > 2011)
+d1 <- RJ %>% select(Year, `Journal Impact Factor`) %>%
+  rename(RJournal = `Journal Impact Factor`)
+d2 <- JCGS %>% select(Year, `Journal Impact Factor`) %>%
+  rename(JCGS = `Journal Impact Factor`) %>% select(-Year)
+d <- bind_cols(d1, d2) %>% 
+  gather(journal, IF, -Year)
+ggplot(d, aes(x=Year, y=IF, colour=journal)) + 
+  geom_line() + ylab("Impact Factor") +
+  scale_colour_brewer("", palette="Dark2") +
+  theme(legend.position="bottom")
+```
+
+## The Plan
 <!--
 Go into more detail about the specifics of the project and it delivers against the problem.
 
@@ -21,6 +37,20 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 
-### 
+Funds are requested to hire a person to assist with the administration of the R Journal. 
+
+## The Team
+
+- Di Cook, Econometrics and Business Statistics, Monash University
+- Olivia Lau, Google, USA
+- John Verzani, Mathematics, City University of New York
+
+## Project Milestones
+
+## How Can The ISC Help
+
+## Dissemination
+
+
 
  
