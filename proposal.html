@@ -148,7 +148,25 @@ Depending on project type the detail section should include:
  - [ ] Architecture
  - [ ] Assumptions
 -->
-<p>Funds are requested to hire a person to assist with the administration of the R Journal.</p>
+<p>Funds are requested to hire a person to assist with the administration of, and infrastructure development for, the R Journal.</p>
+<div id="administration" class="section level3">
+<h3>Administration</h3>
+<p>The current procedures to bring an issue to the public domain is manually intensive:</p>
+<ul>
+<li>Authors submit their manuscripts through a form, such as at <code>http://rjournal.github.io/submissions.html</code>. Submissions must be properly produced following the instructions here <code>http://rjournal.github.io/share/author-guide.pdf</code>. About 10% of submissions fail to properly follow these directions. Some of this number are clearly unsuitable (e.g., they are written in word and for the wrong audience), but many are suitable, and but for some reason have not followed the instructions properly. An administrative assistant would help in identifying the failing submissions prior the managing editor seeing them.</li>
+<li>By using a standard form for submissions, new submissions can be brought into the RJournal repository through a home-grown <code>rj</code> package feature. This mostly works, but when it doesn’t there can be issues that take time, must be resolved by hand. (For example, if a submission isn’t properly processed due to some unresolvable font, a submission can be accidentally brought into the repository multiple times. When this occurs, there is a chance that an omission can occur.) Having an editorial assistant manually import these files, would be beneficial.</li>
+<li>A new submission is recognized with a form email. In this email we immediately ask the authors to send along a script file (if not done already) and add DOI entries. Ideally, these two could be automated as part of the <code>rj</code> package, but an editorial assistant could improve the status quo, by checking these details instead of either having the managing editor do so, or having confusion by sending out a form letter that would otherwise ask for details already present. (Though the letter has clear wording, it is not unusual for authors to be confused.)</li>
+<li>After the managing editor assigns a manuscript to the handling editor and before the article is accepted, it is not unusual for the review process to take longer than advertised. (Finding reviewers can sometimes be time consuming.) Having an editorial associate respond to these emails, instead of the managing editor, would be quite helpful, as often they consist of a gentle reminder to the handling editor and feedback to the author(s).</li>
+<li>Once an article is accepted, it is to be put online. This involves some features of the <code>rj</code> package. There is a fussiness with bibtex entries that can make this task tedious. A editorial associate could help with this task.</li>
+<li>When an issue is compiled, there is the time consuming task of copy editing. The last issue ran to over 500 pages and the copy editing was shared by just 3 editorial board members. The time to copy edit stretched into 6+ weeks. This task could be greatly assisted by an editorial associate.</li>
+<li>The managing editor must solicit various NEWS pieces for the journal. These emails and the subsequent responses could be handled by an editorial associate.</li>
+<li>Finally, compiling the issue again uses features of the <code>rj</code> package. These are not as robust as they should be (something as simple as dashes in a title broke the script last time). Nor are they used frequently enough by the managing editor to be seen as easy. An editorial associate who helped with the process over a few years, would be a great assistance.</li>
+</ul>
+</div>
+<div id="infrastructure" class="section level3">
+<h3>Infrastructure</h3>
+<p>We plan to make heavy use of Github and Travis CI to automate the job of journal editors as much as possible. Currently R Journal has a proof-reading checklist, and several items in the list could have been automatically checked without requiring an editor’s effort. We want to encourage authors to submit articles through Github pull requests, and have reviewers post reviews publicly on Github. If authors choose to do so, we will use Travis CI to (optionally) reproduce their articles and check if the articles are properly formatted according to the journal guidelines. We will use Netlify to generate a HTML preview page of an article (submitted in a pull request) for reviewers to read the article more easily. The automation through Github, Travis CI, and Netlify will both make the life of editors and reviewers easier, and significantly enhance the reproducibility of articles in the R Journal. If we succeed, the R Journal will be the first journal in the area of statistical computing which turns reproducibility into an automatic standard.</p>
+</div>
 </div>
 <div id="the-team" class="section level2">
 <h2>The Team</h2>
@@ -158,15 +176,24 @@ Depending on project type the detail section should include:
 <li>John Verzani, Mathematics, City University of New York</li>
 <li>Yihui Xie, RStudio</li>
 </ul>
+<p>John Verzani is the current Editor-in-Chief. Olivia Lau is an Executive Editor, scheduled to take over as Editor-in-Chief in 2020. Di Cook will join the Executive Editor group in 2019. Yihui Xie is a developer of the Rmarkdown suite of of R packages for publishing.</p>
 </div>
 <div id="project-milestones" class="section level2">
 <h2>Project Milestones</h2>
+<ul>
+<li><p>early-2019 Di and Yihui work on developing and testing new infrastructure</p></li>
+<li><p>mid-2019 editorial associate begins assisting current editorial board manage and streamline the communication, assumes the manual operations of the journal, and begins testing of the new infrastructure on new submissions.</p></li>
+<li><p>late-2019 transition to new infrastructure</p></li>
+<li><p>mid-2020 operations in full swing</p></li>
+</ul>
 </div>
 <div id="how-can-the-isc-help" class="section level2">
 <h2>How Can The ISC Help</h2>
+<p>The R Journal provides a valuable service to the global open source community, and funding from the ISC can help to overhaul the operations, to make it a leader in open, academic publications.</p>
 </div>
 <div id="dissemination" class="section level2">
 <h2>Dissemination</h2>
+<p>All materials developed as part of the project will be available publicly with a creative commons share-alike license.</p>
 </div>
 </div>
 
