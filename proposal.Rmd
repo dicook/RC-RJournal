@@ -8,7 +8,7 @@ This is where the proposal should be outlined.
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 
-The R Journal is the open access, refereed journal of the R project for statistical computing. This is a major outlet for articulating new work contributed to the R community. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and it is becoming hard to find new editorial board members. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistant to copy edit, nag reviewers, and help finalise editions. 
+The R Journal is the open access, refereed, journal of the R project. This is a major outlet for articulating new work contributed to the R community, in the areas of statistical computing. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and potential new members are reluctant to join because the workload is daunting. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistants to copy edit, nag reviewers, help finalize editions, and update the software infrastructure to automate production. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 library(tidyverse)
@@ -26,6 +26,24 @@ ggplot(d, aes(x=Year, y=IF, colour=journal)) +
   theme(legend.position="bottom")
 ```
 
+### Outline of current operations
+
+The current procedures to bring an issue to the public domain is manually intensive:
+
+* Authors submit their manuscripts through a form, such as at `http://rjournal.github.io/submissions.html`. Submissions must be properly produced following the instructions here `http://rjournal.github.io/share/author-guide.pdf`.
+About 10% of submissions fail to properly follow these directions. Some of this number are clearly unsuitable (e.g., they are written in word and for the wrong audience), but many are suitable, but for some reason have not followed the instructions properly.
+* By using a standard form for submissions, new submissions can be brought into the R Journal repository through a home-grown `rj` package feature. This mostly works, but when it doesn't there can be issues that take time, must be resolved by hand. (For example, if a submission isn't properly processed due to some unresolvable font, a submission can be accidentally brought into the repository multiple times. When this occurs, there is a chance that an omission can occur.) 
+* A new submission is recognized with a form email. In this email we immediately ask the authors to send along a script file (if not done already) and add DOI entries.
+* After the managing editor assigns a manuscript to the handling editor and before the article is accepted, it is not unusual for the review process to take longer than advertised. (Finding reviewers can sometimes be time consuming.)
+* Once an article is accepted, it is to be put online. This involves some features of the `rj` package. There is a fussiness with bibtex entries that can make this task tedious.
+* When an issue is compiled, there is the time consuming task of copy editing. The last issue ran to over 500 pages and the copy editing was shared by just 3 editorial board members. The time to copy edit stretched into 6+ weeks.
+* The managing editor must solicit various NEWS pieces for the journal. 
+* Finally, compiling the issue again uses features of the `rj` package. These are not as robust as they should be (something as simple as dashes in a title broke the script last time). Nor are they used frequently enough by the managing editor to be seen as easy.
+
+### Developments of publication infrastructure
+
+Today's common working environment for collaborative publications that could be utilized to modernize the R Journal's operations, include github, travis, netlify, Rmarkdown, and [radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/).
+
 ## The Plan
 <!--
 Go into more detail about the specifics of the project and it delivers against the problem.
@@ -37,25 +55,39 @@ Depending on project type the detail section should include:
  - [ ] Assumptions
 -->
 
-Funds are requested to hire a person to assist with the administration of, and infrastructure development for, the R Journal. 
+Funds are requested to hire personnel to assist with the administration of, and infrastructure development for, the R Journal. 
 
 ### Administration
 
-The current procedures to bring an issue to the public domain is manually intensive:
+An administrative assistant would be employed to:
 
-* Authors submit their manuscripts through a form, such as at `http://rjournal.github.io/submissions.html`. Submissions must be properly produced following the instructions here `http://rjournal.github.io/share/author-guide.pdf`.
-About 10% of submissions fail to properly follow these directions. Some of this number are clearly unsuitable (e.g., they are written in word and for the wrong audience), but many are suitable, and but for some reason have not followed the instructions properly. An administrative assistant would help in identifying the failing submissions prior the managing editor seeing them.
-* By using a standard form for submissions, new submissions can be brought into the RJournal repository through a home-grown `rj` package feature. This mostly works, but when it doesn't there can be issues that take time, must be resolved by hand. (For example, if a submission isn't properly processed due to some unresolvable font, a submission can be accidentally brought into the repository multiple times. When this occurs, there is a chance that an omission can occur.) Having an editorial assistant manually import these files, would be beneficial.
-* A new submission is recognized with a form email. In this email we immediately ask the authors to send along a script file (if not done already) and add DOI entries. Ideally, these two could be automated as part of the `rj` package, but an editorial assistant could improve the status quo, by checking these details instead of either having the managing editor do so, or having confusion by sending out a form letter that would otherwise ask for details already present. (Though the letter has clear wording, it is not unusual for authors to be confused.)
-* After the managing editor assigns a manuscript to the handling editor and before the article is accepted, it is not unusual for the review process to take longer than advertised. (Finding reviewers can sometimes be time consuming.) Having an editorial associate respond to these emails, instead of the managing editor, would be quite helpful, as often they consist of a gentle reminder to the handling editor and feedback to the author(s).
-* Once an article is accepted, it is to be put online. This involves some features of the `rj` package. There is a fussiness with bibtex entries that can make this task tedious. A editorial associate could help with this task.
-* When an issue is compiled, there is the time consuming task of copy editing. The last issue ran to over 500 pages and the copy editing was shared by just 3 editorial board members. The time to copy edit stretched into 6+ weeks. This task could be greatly assisted by an editorial associate.
-* The managing editor must solicit various NEWS pieces for the journal. These emails and the subsequent responses could be handled by an editorial associate.
-* Finally, compiling the issue again uses features of the `rj` package. These are not as robust as they should be (something as simple as dashes in a title broke the script last time). Nor are they used frequently enough by the managing editor to be seen as easy. An editorial associate who helped with the process over a few years, would be a great assistance.
+* help in identify the failing submissions prior the managing editor seeing them.
+* manually import submitted files, using the current system.
+* oversee automatic emails to submitting authors, check details of submissions. 
+* communicate manuscript assignment and reminders from managing editor to associate editors.
+* handle the accepted article typesetting with the `rj` package.
+* copy edit the issue.
+* coordinate news items for the journal.
+* handle the final typesetting of the issue.
 
 ### Infrastructure
 
-We plan to make heavy use of Github and Travis CI to automate the job of journal editors as much as possible. Currently R Journal has a proof-reading checklist, and several items in the list could have been automatically checked without requiring an editor's effort. We want to encourage authors to submit articles through Github pull requests, and have reviewers post reviews publicly on Github. If authors choose to do so, we will use Travis CI to (optionally) reproduce their articles and check if the articles are properly formatted according to the journal guidelines. We will use Netlify to generate a HTML preview page of an article (submitted in a pull request) for reviewers to read the article more easily. The automation through Github, Travis CI, and Netlify will both make the life of editors and reviewers easier, and significantly enhance the reproducibility of articles in the R Journal. If we succeed, the R Journal will be the first journal in the area of statistical computing which turns reproducibility into an automatic standard.
+The infrastructure for the journal will be overhauled. Github, Travis CI, and Rmarkdown will be used to automate much of the work of current journal editors.  
+
+- The current R Journal proof-reading checklist will be converted to  automatic checks. 
+- Authors would be expected to submit articles through github pull requests. Travis CI can be used to reproduce their articles and check if the articles are properly formatted according to the journal guidelines. 
+- If approved to be an open review system, reviewers will be able to post reviews publicly on github. I
+- Netlify will be used to generate an HTML preview page of an article for reviewers to read the article more easily. 
+- A new journal style template will be developed using Rmarkdown and particularly, [Radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/) to assist authors in preparing their papers, and more efficiently automate production.
+
+The new infrastructure will make the life of editors and reviewers easier, and significantly enhance the reproducibility of articles in the R Journal. If all goes as planned, the R Journal will be the first journal in the area of statistical computing which turns reproducibility into an automatic standard.
+
+A bonus of this new system is that the journal issues can be a part of a true
+website, to incorporate interactive graphics in publications, whilst also maintaining PDF articles for printing. Readers will be able to
+provide further comments after the papers are published, so that instead of being [relegated to the published graveyard, articles become immortal](
+https://andrewgelman.com/2018/10/24/study-fails-replicate-continues-get-referenced-no-problems-communication-channels-blocked/).
+
+Di and Yihui will work substantially on this, and will also employ a technical assistant to help. 
 
 ## The Team
 
@@ -64,7 +96,7 @@ We plan to make heavy use of Github and Travis CI to automate the job of journal
 - John Verzani, Mathematics, City University of New York
 - Yihui Xie, RStudio
 
-John Verzani is the current Editor-in-Chief. Olivia Lau is an Executive Editor, scheduled to take over as Editor-in-Chief in 2020. Di Cook will join the Executive Editor group in 2019. Yihui Xie is a developer of the Rmarkdown suite of of R packages for publishing. 
+John Verzani is the current Editor-in-Chief. Olivia Lau is an Executive Editor, scheduled to take over as Editor-in-Chief in 2020. Di Cook will join the Executive Editorial board in 2019. Yihui Xie is a developer of the Rmarkdown suite of of R packages for publishing. 
 
 ## Project Milestones
 
@@ -78,10 +110,16 @@ John Verzani is the current Editor-in-Chief. Olivia Lau is an Executive Editor, 
 
 ## How Can The ISC Help
 
-The R Journal provides a valuable service to the global open source community, and funding from the ISC can help to overhaul the operations, to make it a leader in open, academic publications. 
+The R Journal provides a valuable service to the global open source community, and funding from the ISC can help to overhaul the operations, to make it a leader among open, academic publications. 
+
+### Funding
+
+We request $75,000 in funding over 18 months. All of the funds will be spent on personnel salary, to facilitate the change in operations. We aim to cover two support staff salaries for 20 hour per week for this period.
+
+Longer term, the changes in operations, should greatly reduce the editorial assistant time needed. This we hope could be covered long term by the R Foundation. 
 
 ## Dissemination
 
-All materials developed as part of the project will be available publicly with a creative commons share-alike license. 
+All materials developed as part of the project will be available publicly (on github.com) with a creative commons share-alike license. 
 
  
