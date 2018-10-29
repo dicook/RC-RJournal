@@ -8,7 +8,7 @@ This is where the proposal should be outlined.
 At a high-level address what your proposal is and how it will address the problem identified. Highlight any benefits to the R Community that follow from solving the problem. This should be your most compelling section.
 -->
 
-The R Journal is the open access, refereed, journal of the R project. This is a major outlet for articulating new work contributed to the R community, in the areas of statistical computing. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and potential new members are reluctant to join because the workload is daunting. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistants to copy edit, nag reviewers, help finalize editions, and update the software infrastructure to automate production. 
+The R Journal is the open access, refereed, journal of the R project. This is a major outlet for articulating new work contributed to the R community, particularly focusing on statistical computing. With the growing popularity of R, the number of submissions to the R Journal has exploded, and alongside this the impact factor of the journal is steadily increasing. The editorial board is swamped with papers, and potential new members are reluctant to join because the workload is daunting. The entire journal, from review to production, is produced by the editorial board members. For the long term viability of the journal we need to find resources to fund a production assistants to copy edit, nag reviewers, help finalize editions, and update the software infrastructure to automate production. 
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
 library(tidyverse)
@@ -42,7 +42,7 @@ About 10% of submissions fail to properly follow these directions. Some of this 
 
 ### Developments of publication infrastructure
 
-Today's common working environment for collaborative publications that could be utilized to modernize the R Journal's operations, include github, travis, netlify, Rmarkdown, and [radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/).
+Today's common working environment for collaborative publications that could be utilized to modernize the R Journal's operations, include [github](https://github.com), [travis CI](https://travis-ci.org), [netlify](https://www.netlify.com), [Rmarkdown](https://rmarkdown.rstudio.com), and [radix](https://blog.rstudio.com/2018/09/19/radix-for-r-markdown/).
 
 ## The Plan
 <!--
